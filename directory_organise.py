@@ -106,12 +106,16 @@ class FileSorter:
 
     def get_dir_size(self, dir_path: str):
         total_size = 0
-        for file_name in os.listdir(dir_path):
-            file_path = os.path.join(dir_path, file_name)
-            if os.path.isdir(file_path):
-                total_size += self.get_dir_size(file_path)
-            else:
-                total_size += os.path.getsize(file_path)
+        try:
+            for file_name in os.listdir(dir_path):
+                file_path = os.path.join(dir_path, file_name)
+                if os.path.isdir(file_path):
+                    total_size += self.get_dir_size(file_path)
+                else:
+
+                    total_size += os.path.getsize(file_path)
+        except PermissionError:
+            pass
         return total_size
 
     def move_to_category_folder(self, category: str, file_path: str):
@@ -136,11 +140,11 @@ class FileSorter:
                         if len(file_names) == 0:
                             continue
                         category = self.gpt_chat.create_completion(str(file_names)).choices[0].message["content"]
-                        if category == "[NONE]":
-                            # rename
-                            shutil.move(file_path, file_path + "_[DELETE-MARK]")
-                        else:
-                            self.move_to_category_folder(category.replace("[","").replace("]",""),file_path)
+                        # if category == "[NONE]":
+                        #     # rename
+                        #     shutil.move(file_path, file_path + "_[DELETE-MARK]")
+                        if category != "[NONE]":
+                            self.move_to_category_folder(category.replace("[", "").replace("]", ""), file_path)
                 else:
                     file_type = "." + file_path.split(".")[-1]
                     category = self.get_category(file_type)
@@ -195,5 +199,3 @@ def main():
 
 if __name__ == "__main__":
     main()
-
-
