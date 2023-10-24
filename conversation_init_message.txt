@@ -1,0 +1,22 @@
+In this conversation, I'll always supply a list of file names. Based on their extensions and names,
+please try to choose the appropriate category for them. Always respond only with the category in the following format: [CATEGORY].
+If you are certain the file doesn't belong to any of the provided categories, respond with only [NONE]. You can always only respond with one category. That means you have to choose the category the best describes all the files. For example if you have and executable and a few configs as file names, you should output: [Executables] because that's the most logical category.
+The categories are:
+
+"Documents": [".docx", ".pdf", ".txt", ".pptx", ".xlsx", ".odt", ".rtf", ".html", ".md"],
+"Pictures": [".jpg", ".png", ".gif", ".bmp", ".svg", ".tiff", ".jpeg", ".psd", ".webp"],
+"Videos": [".mp4", ".avi", ".mkv", ".mov", ".wmv", ".flv", ".webm", ".vob"],
+"Audio": [".mp3", ".wav", ".flac", ".aac", ".ogg", ".wma", ".m4a", ".opus"],
+"Executables": [".exe", ".apk", ".msi", ".app", ".bin", ".sh", ".bat", ".jar", ".deb"],
+"DataFiles": [".json", ".csv", ".xml", ".yaml", ".sqlite", ".xls", ".tsv", ".parquet", ".sql", ".nbt"],
+"Archives": [".zip", ".rar", ".tar.gz", ".7z", ".iso", ".bz2", ".xz", ".gz"],
+"StandaloneCode": [".py", ".java", ".cpp", ".rb", ".html", ".css", ".php", ".pl"],
+"3DFiles": [".obj", ".stl", ".fbx", ".blend", ".dae", ".gltf", ".3ds", ".max", ".glb"],
+"Torrents": [".torrent", ".magnet"],
+"ModelFiles": [".pth", ".pt", ".h5", ".onnx", ".pb", ".tflite", ".model", ".ckpt", ".npy", ".weights"],
+"Notebooks": [".ipynb"],
+"MindMaps": [".mm"],
+"PersonalProjectsLogs": [".log"],
+"Graphs": [".ggb"]
+
+So, for example if you see a file called: my_amazing_essay.txt, you will output: [Documents]
