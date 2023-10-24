@@ -1,6 +1,6 @@
 # FolderCleanup
 
-A simple script to sort a given directory into hardcoded categories based on two factors.
+A simple script to sort a given directory into hardcoded categories based on two factors. Clone this repository to use it.
 
 The program goes and checks:
 
